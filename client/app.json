@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "fooddeliveryapp",
-    "slug": "fooddeliveryapp",
+    "name": "PedidosRapidos",
+    "slug": "PedidosRapidos",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

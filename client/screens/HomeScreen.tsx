@@ -4,6 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { themeColors } from "../styles";
 import BuscadorHome from "../components/HomeScreen/BuscadorHome";
 import CategoriesHome from "../components/HomeScreen/CategoriesHome";
+import FeaturedHome from "../components/HomeScreen/FeaturedHome";
 
 export default function HomeScreen() {
   return (
@@ -16,6 +17,7 @@ export default function HomeScreen() {
         contentContainerStyle={{ paddingBottom: 20 }}
       >
         <CategoriesHome />
+        <FeaturedHome />
       </ScrollView>
     </SafeAreaView>
   );

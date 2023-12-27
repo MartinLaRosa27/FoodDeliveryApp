@@ -1,10 +1,10 @@
-import { TextInput, View, Text } from "react-native";
+import { TextInput, View, Text, TouchableOpacity } from "react-native";
 import { themeColors } from "../../styles";
 import * as Icon from "react-native-feather";
 
 export default function BuscadorHome() {
   return (
-    <View className="flex-row items-center space-x-2 px-5 pb-2 mt-2">
+    <View className="flex-row items-center space-x-2 px-5 pb-2 mt-5">
       <View className="flex-row flex-1 items-center p-3 rounded-full border border-gray-300">
         <Icon.Search height={"25"} width={"25"} stroke={"gray"} />
         <TextInput
@@ -16,7 +16,7 @@ export default function BuscadorHome() {
           <Text className="text-gray-600">Palermo</Text>
         </View>
       </View>
-      <View
+      <TouchableOpacity
         className="p-2 rounded-full"
         style={{ backgroundColor: themeColors.bgColor(1) }}
       >
@@ -26,7 +26,7 @@ export default function BuscadorHome() {
           strokeWidth={"1.5"}
           stroke={"white"}
         />
-      </View>
+      </TouchableOpacity>
     </View>
   );
 }

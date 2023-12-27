@@ -8,7 +8,7 @@ import FeaturedHome from "../components/HomeScreen/FeaturedHome";
 
 export default function HomeScreen() {
   return (
-    <SafeAreaView className="bg-white">
+    <SafeAreaView className="bg-white pb-10">
       <StatusBar style="light" backgroundColor={themeColors.bgColor(1)} />
       <BuscadorHome />
 

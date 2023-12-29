@@ -1,10 +1,17 @@
 import { Image, TouchableWithoutFeedback, View, Text } from "react-native";
 import { themeColors } from "../../styles";
+import { useNavigation } from "@react-navigation/native";
 import * as Icon from "react-native-feather";
 
 export default function RestaurantCard(props: { restaurant: any }) {
+  const navigation = useNavigation<any>();
+
   return (
-    <TouchableWithoutFeedback>
+    <TouchableWithoutFeedback
+      onPress={() =>
+        navigation.navigate("RestaurantScreen", { ...props.restaurant })
+      }
+    >
       <View
         className="mr-6 bg-white rounded-3xl shadow-lg"
         style={{ shadowColor: themeColors.bgColor(2), shadowRadius: 6 }}

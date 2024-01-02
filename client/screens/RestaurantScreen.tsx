@@ -9,6 +9,8 @@ import {
 } from "react-native";
 import { themeColors } from "../styles";
 import { useNavigation } from "@react-navigation/native";
+import DishRow from "../components/RestaurantScreen/DishRow";
+import CartIcon from "../components/RestaurantScreen/CartIcon";
 import * as Icon from "react-native-feather";
 
 export default function RestaurantScreen() {
@@ -17,6 +19,7 @@ export default function RestaurantScreen() {
 
   return (
     <SafeAreaView className="bg-white pb-10">
+      <CartIcon />
       <ScrollView>
         <View className="relative">
           <Image className="w-full h-72" source={params.image} />
@@ -57,11 +60,11 @@ export default function RestaurantScreen() {
           </View>
         </View>
 
-        <View className="pb-36 bg-white">
-          <Text className="px-4 py-4 text-2xl font-bold text-orange-500 mb-3 text-center uppercase">
-            Menu
-          </Text>
+        <View className="pb-36 mt-4">
           {/* platos */}
+          {params.dishes.map((dish: any, i: number) => {
+            return <DishRow key={i} item={dish} />;
+          })}
         </View>
       </ScrollView>
     </SafeAreaView>

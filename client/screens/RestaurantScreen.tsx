@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { themeColors } from "../styles";
 import { useNavigation } from "@react-navigation/native";
+import { StatusBar } from "expo-status-bar";
 import DishRow from "../components/RestaurantScreen/DishRow";
 import CartIcon from "../components/RestaurantScreen/CartIcon";
 import * as Icon from "react-native-feather";
@@ -19,6 +20,7 @@ export default function RestaurantScreen() {
 
   return (
     <SafeAreaView className="bg-white pb-10">
+      <StatusBar style="light" />
       <CartIcon />
       <ScrollView>
         <View className="relative">

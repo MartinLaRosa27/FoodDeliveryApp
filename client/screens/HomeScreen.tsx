@@ -7,7 +7,7 @@ import FeaturedHome from "../components/HomeScreen/FeaturedHome";
 
 export default function HomeScreen() {
   return (
-    <SafeAreaView className="bg-white pb-10">
+    <SafeAreaView className="bg-white h-full">
       <StatusBar style="dark" />
 
       <BuscadorHome />

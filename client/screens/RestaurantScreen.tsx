@@ -19,7 +19,7 @@ export default function RestaurantScreen() {
   const navigation = useNavigation<any>();
 
   return (
-    <SafeAreaView className="bg-white pb-10">
+    <SafeAreaView className="bg-white h-full">
       <StatusBar style="light" />
       <CartIcon />
       <ScrollView>

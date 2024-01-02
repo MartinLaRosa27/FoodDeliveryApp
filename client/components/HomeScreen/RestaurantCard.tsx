@@ -1,4 +1,4 @@
-import { Image, TouchableWithoutFeedback, View, Text } from "react-native";
+import { Image, TouchableOpacity, View, Text } from "react-native";
 import { themeColors } from "../../styles";
 import { useNavigation } from "@react-navigation/native";
 import * as Icon from "react-native-feather";
@@ -7,7 +7,7 @@ export default function RestaurantCard(props: { restaurant: any }) {
   const navigation = useNavigation<any>();
 
   return (
-    <TouchableWithoutFeedback
+    <TouchableOpacity
       onPress={() =>
         navigation.navigate("RestaurantScreen", { ...props.restaurant })
       }
@@ -30,8 +30,7 @@ export default function RestaurantCard(props: { restaurant: any }) {
               className="h-4 w-4"
             />
             <Text className="text-xs">
-              <Text className="text-green-700">{props.restaurant.stars}</Text>
-              <Text className="text-gray-700">{props.restaurant.type}</Text>
+              <Text className="text-gray-700">{props.restaurant.stars}</Text>
             </Text>
           </View>
 
@@ -43,6 +42,6 @@ export default function RestaurantCard(props: { restaurant: any }) {
           </View>
         </View>
       </View>
-    </TouchableWithoutFeedback>
+    </TouchableOpacity>
   );
 }

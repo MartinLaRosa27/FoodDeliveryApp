@@ -38,7 +38,7 @@ export default function RestaurantScreen() {
           className="bg-white -mt-12 pt-6"
         >
           <View className="px-5">
-            <Text className="text-3xl font-bold text-orange-500 text-center mb-3 italic">
+            <Text className="text-3xl font-bold text-orange-500 text-center mb-3">
               {params.name}
             </Text>
 

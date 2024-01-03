@@ -82,7 +82,7 @@ export const featured = {
           id: 4,
           name: "Pizza Mozzarella",
           description: "Pizza Mozzarella grande.",
-          price: 4446,
+          price: 6400,
           image: require("./assets/img/costumbresArgentinas/costumbres4.webp"),
         },
       ],

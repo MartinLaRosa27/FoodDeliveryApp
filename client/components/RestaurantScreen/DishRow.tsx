@@ -1,6 +1,7 @@
 import { View, Image, Text, TouchableOpacity } from "react-native";
 import { themeColors } from "../../styles";
 import * as Icon from "react-native-feather";
+import { numberFormat } from "../../helpers/numberFormat";
 
 export default function DishRow(props: { item: any }) {
   return (
@@ -18,7 +19,7 @@ export default function DishRow(props: { item: any }) {
         </View>
         <View className="flex-row justify-between pl-3 items-center">
           <Text className="text-gray-700 text-lg font-bold">
-            ${props.item.price}
+            ${numberFormat(props.item.price)}
           </Text>
 
           <View className="flex-row items-center">

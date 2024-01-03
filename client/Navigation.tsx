@@ -4,6 +4,8 @@ import { themeColors } from "./styles";
 import HomeScreen from "./screens/HomeScreen";
 import RestaurantScreen from "./screens/RestaurantScreen";
 import CartScreen from "./screens/CartScreen";
+import OrderPreparationScreen from "./screens/OrderPreparationScreen";
+import DeliveryScreen from "./screens/DeliveryScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +25,16 @@ export default function Navigation() {
           name="CartScreen"
           options={{ presentation: "modal" }}
           component={CartScreen}
+        />
+        <Stack.Screen
+          name="OrderPreparationScreen"
+          options={{ presentation: "fullScreenModal" }}
+          component={OrderPreparationScreen}
+        />
+        <Stack.Screen
+          name="DeliveryScreen"
+          options={{ presentation: "fullScreenModal" }}
+          component={DeliveryScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

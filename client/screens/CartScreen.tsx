@@ -110,7 +110,7 @@ export default function CartScreen() {
           <TouchableOpacity
             style={{ backgroundColor: themeColors.bgColor(1) }}
             className="p-3 rounded-full"
-            onPress={() => navigation.navigate("OrderPreparationScreen")}
+            onPress={() => navigation.navigate("DeliveryScreen")}
           >
             <Text className="text-white text-center font-bold text-lg">
               Confirmar Pedido

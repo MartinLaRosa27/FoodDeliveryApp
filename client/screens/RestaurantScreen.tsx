@@ -19,11 +19,12 @@ export default function RestaurantScreen() {
   const { params } = useRoute<any>();
   const navigation = useNavigation<any>();
   const [pedido, setPedido] = useState<any[]>([]);
+  const [total, setTotal] = useState<number>(0);
 
   return (
     <SafeAreaView className="bg-white h-full">
       <StatusBar style="light" />
-      <CartIcon />
+      <CartIcon total={total} />
       <ScrollView>
         <View className="relative">
           <Image className="w-full h-72" source={params.image} />
@@ -67,7 +68,15 @@ export default function RestaurantScreen() {
         <View className="pb-36 mt-4">
           {/* platos */}
           {params.dishes.map((dish: any, i: number) => {
-            return <DishRow key={i} item={dish} setPedido={setPedido} pedido={pedido}/>;
+            return (
+              <DishRow
+                key={i}
+                item={dish}
+                setPedido={setPedido}
+                pedido={pedido}
+                setTotal={setTotal}
+              />
+            );
           })}
         </View>
       </ScrollView>

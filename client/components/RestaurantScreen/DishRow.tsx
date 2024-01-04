@@ -8,6 +8,7 @@ export default function DishRow(props: {
   item: any;
   setPedido: any;
   pedido: any[];
+  setTotal: any;
 }) {
   const [cantidad, setCantidad] = useState<number>(0);
 
@@ -31,8 +32,10 @@ export default function DishRow(props: {
       if (aa.id == props.item.id) {
         if (action) {
           aa.cantidad = aa.cantidad + 1;
+          aa.price = aa.cantidad * props.item.price;
         } else {
           aa.cantidad = aa.cantidad - 1;
+          aa.price = aa.cantidad * props.item.price;
         }
         productoExiste = true;
       }
@@ -40,14 +43,23 @@ export default function DishRow(props: {
     if (!productoExiste) {
       auxArray.push({
         id: props.item.id,
+        name: props.item.name,
+        price: props.item.price,
         cantidad: 1,
       });
     } else {
       productoExiste = true;
     }
     props.setPedido(auxArray);
-    props.setPedido(auxArray);
-    console.log(props.pedido);
+    calcularTotal(auxArray);
+  };
+
+  const calcularTotal = (auxArray: any[]) => {
+    let total = 0;
+    auxArray.map((aa: any) => {
+      total += aa.price;
+    });
+    props.setTotal(total);
   };
 
   return (

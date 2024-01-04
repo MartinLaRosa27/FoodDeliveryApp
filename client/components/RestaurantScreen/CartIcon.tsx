@@ -2,7 +2,7 @@ import { TouchableOpacity, View, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { themeColors } from "../../styles";
 
-export default function CartIcon() {
+export default function CartIcon(props: { total: number }) {
   const navigation = useNavigation<any>();
 
   return (
@@ -16,7 +16,9 @@ export default function CartIcon() {
           className="p-2 px-4 rounded-full"
           style={{ backgroundColor: "rgba(255,255,255,0.3)" }}
         >
-          <Text className="font-extrabold text-white text-lg">${4}</Text>
+          <Text className="font-extrabold text-white text-lg">
+            ${props.total}
+          </Text>
         </View>
         <Text className="flex-1 text-center font-extrabold text-white text-lg capitalize">
           Mi pedido

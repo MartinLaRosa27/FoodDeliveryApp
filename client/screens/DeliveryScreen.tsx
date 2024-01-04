@@ -13,7 +13,7 @@ export default function DeliveryScreen() {
 
   return (
     <SafeAreaView className="bg-white h-full">
-      <StatusBar style="light" />
+      <StatusBar style="dark" />
       <View className="flex-1">
         <MapView
           initialRegion={{

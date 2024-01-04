@@ -2,7 +2,11 @@ import { TouchableOpacity, View, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { themeColors } from "../../styles";
 
-export default function CartIcon(props: { total: number }) {
+export default function CartIcon(props: {
+  total: number;
+  pedido: any[];
+  name: string;
+}) {
   const navigation = useNavigation<any>();
 
   return (
@@ -10,7 +14,13 @@ export default function CartIcon(props: { total: number }) {
       <TouchableOpacity
         style={{ backgroundColor: themeColors.bgColor(1) }}
         className="flex-row justify-between items-center mx-5 rounded-full p-4 py-3 shadow-lg"
-        onPress={() => navigation.navigate("CartScreen")}
+        onPress={() =>
+          navigation.navigate("CartScreen", {
+            total: props.total,
+            pedido: props.pedido,
+            name: props.name,
+          })
+        }
       >
         <View
           className="p-2 px-4 rounded-full"

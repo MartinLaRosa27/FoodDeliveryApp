@@ -24,7 +24,7 @@ export default function RestaurantScreen() {
   return (
     <SafeAreaView className="bg-white h-full">
       <StatusBar style="light" />
-      <CartIcon total={total} />
+      <CartIcon total={total} pedido={pedido} name={params.name} />
       <ScrollView>
         <View className="relative">
           <Image className="w-full h-72" source={params.image} />

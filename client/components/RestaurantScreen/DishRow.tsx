@@ -45,6 +45,7 @@ export default function DishRow(props: {
         id: props.item.id,
         name: props.item.name,
         price: props.item.price,
+        image: props.item.image,
         cantidad: 1,
       });
     } else {

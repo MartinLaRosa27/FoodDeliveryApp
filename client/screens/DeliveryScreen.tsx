@@ -1,15 +1,24 @@
 import { StatusBar } from "expo-status-bar";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { View, Text, Image, TouchableOpacity, BackHandler } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
 import { themeColors } from "../styles";
 import { useRoute } from "@react-navigation/native";
 import MapView, { Marker } from "react-native-maps";
 import * as Icon from "react-native-feather";
+import { useEffect } from "react";
 
 export default function DeliveryScreen() {
   const { params } = useRoute<any>();
   const navigation = useNavigation<any>();
+
+  useEffect(() => {
+    const backHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      () => true
+    );
+    return () => backHandler.remove();
+  }, []);
 
   return (
     <SafeAreaView className="bg-white h-full">

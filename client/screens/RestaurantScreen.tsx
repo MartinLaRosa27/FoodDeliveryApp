@@ -24,7 +24,16 @@ export default function RestaurantScreen() {
   return (
     <SafeAreaView className="bg-white h-full">
       <StatusBar style="light" />
-      <CartIcon total={total} pedido={pedido} name={params.name} />
+      <CartIcon
+        total={total}
+        pedido={pedido}
+        tienda={{
+          name: params.name,
+          description: params.description,
+          lng: params.lng,
+          lat: params.lat,
+        }}
+      />
       <ScrollView>
         <View className="relative">
           <Image className="w-full h-72" source={params.image} />

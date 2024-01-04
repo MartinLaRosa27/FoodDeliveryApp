@@ -28,7 +28,9 @@ export default function CartScreen() {
           <Text className="text-center font-bold text-xl capitalize text-orange-500">
             Tu Pedido
           </Text>
-          <Text className="text-center text-gray-500">{params.name}</Text>
+          <Text className="text-center text-gray-500">
+            {params.tienda.name}
+          </Text>
         </View>
       </View>
       {/* HEADER */}
@@ -107,7 +109,9 @@ export default function CartScreen() {
           <TouchableOpacity
             style={{ backgroundColor: themeColors.bgColor(1) }}
             className="p-3 rounded-full"
-            onPress={() => navigation.navigate("DeliveryScreen")}
+            onPress={() =>
+              navigation.navigate("DeliveryScreen", { tienda: params.tienda })
+            }
           >
             <Text className="text-white text-center font-bold text-lg">
               Confirmar Pedido

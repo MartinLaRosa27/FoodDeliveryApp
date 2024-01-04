@@ -2,13 +2,13 @@ import { StatusBar } from "expo-status-bar";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
-import { featured } from "../DB";
 import { themeColors } from "../styles";
+import { useRoute } from "@react-navigation/native";
 import MapView, { Marker } from "react-native-maps";
 import * as Icon from "react-native-feather";
 
 export default function DeliveryScreen() {
-  const restaurant = featured.restaurants[0];
+  const { params } = useRoute<any>();
   const navigation = useNavigation<any>();
 
   return (
@@ -17,8 +17,8 @@ export default function DeliveryScreen() {
       <View className="flex-1">
         <MapView
           initialRegion={{
-            latitude: restaurant.lat,
-            longitude: restaurant.lng,
+            latitude: params.tienda.lat,
+            longitude: params.tienda.lng,
             latitudeDelta: 0.01,
             longitudeDelta: 0.01,
           }}
@@ -27,11 +27,11 @@ export default function DeliveryScreen() {
         >
           <Marker
             coordinate={{
-              latitude: restaurant.lat,
-              longitude: restaurant.lng,
+              latitude: params.tienda.lat,
+              longitude: params.tienda.lng,
             }}
-            title={restaurant.name}
-            description={restaurant.description}
+            title={params.tienda.name}
+            description={params.tienda.description}
           />
         </MapView>
         <View className="rounded-t-3xl -mt-12 bg-white relative">

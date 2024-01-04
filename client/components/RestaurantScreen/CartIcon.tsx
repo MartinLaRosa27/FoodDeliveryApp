@@ -5,7 +5,7 @@ import { themeColors } from "../../styles";
 export default function CartIcon(props: {
   total: number;
   pedido: any[];
-  name: string;
+  tienda: any;
 }) {
   const navigation = useNavigation<any>();
 
@@ -18,7 +18,7 @@ export default function CartIcon(props: {
           navigation.navigate("CartScreen", {
             total: props.total,
             pedido: props.pedido,
-            name: props.name,
+            tienda: props.tienda,
           })
         }
       >

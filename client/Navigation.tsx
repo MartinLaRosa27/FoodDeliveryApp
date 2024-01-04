@@ -14,7 +14,7 @@ export default function Navigation() {
       <Stack.Navigator
         screenOptions={{
           headerShown: false,
-          navigationBarHidden: true,
+          navigationBarHidden: false,
           navigationBarColor: themeColors.bgColor(1),
         }}
       >

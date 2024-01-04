@@ -1,9 +1,55 @@
+import { useState } from "react";
 import { View, Image, Text, TouchableOpacity } from "react-native";
 import { themeColors } from "../../styles";
-import * as Icon from "react-native-feather";
 import { numberFormat } from "../../helpers/numberFormat";
+import * as Icon from "react-native-feather";
 
-export default function DishRow(props: { item: any }) {
+export default function DishRow(props: {
+  item: any;
+  setPedido: any;
+  pedido: any[];
+}) {
+  const [cantidad, setCantidad] = useState<number>(0);
+
+  const creacionPedido = (action: number) => {
+    if (action) {
+      if (cantidad < 6) {
+        setCantidad(cantidad + 1);
+      } else {
+        return;
+      }
+    } else {
+      if (cantidad > 0) {
+        setCantidad(cantidad - 1);
+      } else {
+        return;
+      }
+    }
+    const auxArray = props.pedido;
+    let productoExiste = false;
+    auxArray.map((aa: any) => {
+      if (aa.id == props.item.id) {
+        if (action) {
+          aa.cantidad = aa.cantidad + 1;
+        } else {
+          aa.cantidad = aa.cantidad - 1;
+        }
+        productoExiste = true;
+      }
+    });
+    if (!productoExiste) {
+      auxArray.push({
+        id: props.item.id,
+        cantidad: 1,
+      });
+    } else {
+      productoExiste = true;
+    }
+    props.setPedido(auxArray);
+    props.setPedido(auxArray);
+    console.log(props.pedido);
+  };
+
   return (
     <View className="flex-row items-center bg-orange-50 p-3 rounded-3xl mb-3 mx-2">
       <Image
@@ -26,13 +72,19 @@ export default function DishRow(props: { item: any }) {
             <TouchableOpacity
               className="p-2 rounded-full"
               style={{ backgroundColor: themeColors.bgColor(1) }}
+              onPress={() => {
+                creacionPedido(0);
+              }}
             >
               <Icon.Minus strokeWidth={2} height={20} stroke={"white"} />
             </TouchableOpacity>
-            <Text className="px-3">{2}</Text>
+            <Text className="px-3">{cantidad}</Text>
             <TouchableOpacity
               className="p-2 rounded-full"
               style={{ backgroundColor: themeColors.bgColor(1) }}
+              onPress={() => {
+                creacionPedido(1);
+              }}
             >
               <Icon.Plus strokeWidth={2} height={20} stroke={"white"} />
             </TouchableOpacity>

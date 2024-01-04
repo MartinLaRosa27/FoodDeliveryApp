@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useRoute } from "@react-navigation/native";
 import {
   SafeAreaView,
@@ -17,6 +18,7 @@ import * as Icon from "react-native-feather";
 export default function RestaurantScreen() {
   const { params } = useRoute<any>();
   const navigation = useNavigation<any>();
+  const [pedido, setPedido] = useState<any[]>([]);
 
   return (
     <SafeAreaView className="bg-white h-full">
@@ -65,7 +67,7 @@ export default function RestaurantScreen() {
         <View className="pb-36 mt-4">
           {/* platos */}
           {params.dishes.map((dish: any, i: number) => {
-            return <DishRow key={i} item={dish} />;
+            return <DishRow key={i} item={dish} setPedido={setPedido} pedido={pedido}/>;
           })}
         </View>
       </ScrollView>

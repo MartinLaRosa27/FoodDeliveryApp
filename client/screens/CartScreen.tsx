@@ -5,11 +5,20 @@ import { themeColors } from "../styles";
 import { useNavigation } from "@react-navigation/native";
 import { useRoute } from "@react-navigation/native";
 import { numberFormat } from "../helpers/numberFormat";
+import Toast from "react-native-toast-message";
 import * as Icon from "react-native-feather";
 
 export default function CartScreen() {
   const { params } = useRoute<any>();
   const navigation = useNavigation<any>();
+
+  const confirmarPedido = () => {
+    Toast.show({
+      type: "success",
+      text1: "Pedido confirmado",
+    });
+    navigation.navigate("DeliveryScreen", { tienda: params.tienda });
+  };
 
   return (
     <SafeAreaView className="bg-white h-full">
@@ -45,7 +54,7 @@ export default function CartScreen() {
           className="w-20 h-20 rounded-full"
         />
         <Text className="flex-1 pl-4">Llega en 20-45 minutos</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
           <Text className="font-bold" style={{ color: themeColors.text }}>
             Modificar
           </Text>
@@ -109,9 +118,7 @@ export default function CartScreen() {
           <TouchableOpacity
             style={{ backgroundColor: themeColors.bgColor(1) }}
             className="p-3 rounded-full"
-            onPress={() =>
-              navigation.navigate("DeliveryScreen", { tienda: params.tienda })
-            }
+            onPress={() => confirmarPedido()}
           >
             <Text className="text-white text-center font-bold text-lg">
               Confirmar Pedido

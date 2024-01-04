@@ -2,6 +2,7 @@ import { useState } from "react";
 import { View, Image, Text, TouchableOpacity } from "react-native";
 import { themeColors } from "../../styles";
 import { numberFormat } from "../../helpers/numberFormat";
+import Toast from "react-native-toast-message";
 import * as Icon from "react-native-feather";
 
 export default function DishRow(props: {
@@ -17,6 +18,10 @@ export default function DishRow(props: {
       if (cantidad < 6) {
         setCantidad(cantidad + 1);
       } else {
+        Toast.show({
+          type: "error",
+          text1: "No se pueden pedir más de 6 unidades del mismo producto",
+        });
         return;
       }
     } else {
